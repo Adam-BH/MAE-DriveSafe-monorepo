@@ -1,0 +1,77 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+*.lcov
+.nyc_output
+
+# Production & Build outputs
+/dist
+/build
+/.next
+/out
+*.tsbuildinfo
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.iml
+.sublime-workspace
+.sublime-project
+
+# OS files
+Thumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Misc
+.cache/
+.parcel-cache
+.eslintcache
+.stylelintcache
+
+# Mobile
+mobile/.expo/
+mobile/.expo-shared/
+mobile/dist/
+mobile/ios/Pods/
+mobile/ios/Podfile.lock
+
+# Dashboard
+dashboard/.vite/
+
+# API
+api/dist/
+api/build/
+
+# Temporary files
+*.tmp
+tmp/
+temp/
