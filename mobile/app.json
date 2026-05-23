@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "DriveGuard",
+    "slug": "driveguard",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "driveguard",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#2B3497"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.driveguard.app",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "DriveGuard needs location to record your driving sessions.",
+        "NSMotionUsageDescription": "DriveGuard uses motion sensors to detect driving behavior."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#2B3497"
+      },
+      "package": "com.driveguard.app",
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION",
+        "ACTIVITY_RECOGNITION"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "DriveGuard needs location to track your driving sessions."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

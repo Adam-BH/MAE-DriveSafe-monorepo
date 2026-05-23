@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #2b3497;
+  --color-secondary: #4bbfa0;
+  --color-danger: #ec6062;
+  --color-surface: #f5f5f4;
+  --color-white: #ffffff;
+  --color-text: #1a1a2e;
+  --color-text-muted: rgba(26, 26, 46, 0.55);
+
+  --font-heading: 'Montserrat', 'Poppins', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  --text-display: 36px;
+  --text-h1: 26px;
+  --text-h2: 20px;
+  --text-h3: 16px;
+  --text-body: 14px;
+  --text-small: 11px;
+
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 999px;
+
+  --shadow-sm: 0 1px 4px rgba(43, 52, 151, 0.08);
+  --shadow-md: 0 4px 16px rgba(43, 52, 151, 0.12);
+  --shadow-lg: 0 8px 32px rgba(43, 52, 151, 0.16);
+  --shadow-xl: 0 16px 48px rgba(43, 52, 151, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}

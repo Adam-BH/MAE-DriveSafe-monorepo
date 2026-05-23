@@ -1,0 +1,11 @@
+{
+  "name": "driveguard",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix api\" \"npm run dev --prefix dashboard\" \"npm run start --prefix mobile\"",
+    "install:all": "npm i && npm i --prefix api && npm i --prefix dashboard && npm i --prefix mobile"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
