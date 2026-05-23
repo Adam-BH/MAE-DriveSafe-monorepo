@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import { z } from 'zod';
 import jwt from 'jsonwebtoken';
-import { supabase } from '../supabase.js';
-import { validateBody } from '../middleware/validate.js';
+import { supabase } from '../supabase';
+import { validateBody } from '../middleware/validate';
 
 const router = Router();
 

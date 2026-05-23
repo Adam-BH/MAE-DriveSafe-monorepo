@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import { z } from 'zod';
-import { supabase } from '../supabase.js';
-import { authenticate } from '../middleware/auth.js';
-import { validateQuery } from '../middleware/validate.js';
+import { supabase } from '../supabase';
+import { authenticate } from '../middleware/auth';
+import { validateQuery } from '../middleware/validate';
 
 const router = Router();
 
@@ -41,7 +41,7 @@ router.get('/drivers/:id/scores', authenticate, validateQuery(scoresQuerySchema)
   res.json(data);
 });
 
-router.post('/compute/:driverId', authenticate, async (req, res) => {
+router.post('/scores/compute/:driverId', authenticate, async (req, res) => {
   const { driverId } = req.params;
 
   const periodEnd = new Date();

@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import { z } from 'zod';
-import { supabase } from '../supabase.js';
-import { authenticate, requireRole } from '../middleware/auth.js';
-import { validateQuery, validateBody } from '../middleware/validate.js';
+import { supabase } from '../supabase';
+import { authenticate, requireRole } from '../middleware/auth';
+import { validateQuery, validateBody } from '../middleware/validate';
 
 const router = Router();
 
@@ -63,6 +63,42 @@ router.get('/:id', authenticate, requireRole('insurer'), async (req, res) => {
     open_claims_count: claimsRes.count ?? 0,
     recent_sessions: sessionsRes.data ?? [],
   });
+});
+
+const sessionsQuerySchema = z.object({
+  from: z.string().optional(),
+  to: z.string().optional(),
+  page: z.coerce.number().int().min(1).default(1),
+  limit: z.coerce.number().int().min(1).max(100).default(20),
+});
+
+router.get('/:id/sessions', authenticate, validateQuery(sessionsQuerySchema), async (req, res) => {
+  const { id } = req.params;
+  const { from, to, page, limit } = req.query as z.infer<typeof sessionsQuerySchema>;
+  const offset = (page - 1) * limit;
+
+  if (req.user?.role === 'driver' && req.user?.driverId !== id) {
+    res.status(403).json({ error: 'Access denied' });
+    return;
+  }
+
+  let query = supabase
+    .from('sessions')
+    .select('*', { count: 'exact' })
+    .eq('driver_id', id)
+    .order('started_at', { ascending: false })
+    .range(offset, offset + limit - 1);
+
+  if (from) query = query.gte('started_at', from);
+  if (to) query = query.lte('started_at', to);
+
+  const { data, error, count } = await query;
+  if (error) {
+    res.status(500).json({ error: error.message });
+    return;
+  }
+
+  res.json({ data, total: count, page, limit });
 });
 
 const patchSchema = z.object({

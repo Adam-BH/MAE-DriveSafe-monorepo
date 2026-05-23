@@ -4,14 +4,14 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 
-import authRouter from './routes/auth.js';
-import driversRouter from './routes/drivers.js';
-import sessionsRouter from './routes/sessions.js';
-import eventsRouter from './routes/events.js';
-import scoresRouter from './routes/scores.js';
-import claimsRouter from './routes/claims.js';
-import alertsRouter from './routes/alerts.js';
-import analyticsRouter from './routes/analytics.js';
+import authRouter from './routes/auth';
+import driversRouter from './routes/drivers';
+import sessionsRouter from './routes/sessions';
+import eventsRouter from './routes/events';
+import scoresRouter from './routes/scores';
+import claimsRouter from './routes/claims';
+import alertsRouter from './routes/alerts';
+import analyticsRouter from './routes/analytics';
 
 const app = express();
 

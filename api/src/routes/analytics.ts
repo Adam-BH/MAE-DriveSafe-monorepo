@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { supabase } from '../supabase.js';
-import { authenticate, requireRole } from '../middleware/auth.js';
-import { TopRiskDriver } from '../types/index.js';
+import { supabase } from '../supabase';
+import { authenticate, requireRole } from '../middleware/auth';
+import { TopRiskDriver } from '../types/index';
 
 const router = Router();
 

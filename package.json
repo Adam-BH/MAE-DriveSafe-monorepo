@@ -2,7 +2,7 @@
   "name": "driveguard",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"npm run dev --prefix api\" \"npm run dev --prefix dashboard\" \"npm run start --prefix mobile\"",
+    "dev": "concurrently \"npm run dev --prefix api\" \"npm run dev --prefix dashboard\" \"cd mobile && npx expo start\"",
     "install:all": "npm i && npm i --prefix api && npm i --prefix dashboard && npm i --prefix mobile"
   },
   "devDependencies": {
